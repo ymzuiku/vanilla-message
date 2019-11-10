@@ -1,15 +1,14 @@
-import keyframesSpring from 'keyframes-spring';
+import vanillaSpring from 'vanilla-spring';
 import { IStyle } from './IStyle';
 
-keyframesSpring(
-  'moveToast',
-  0.5,
-  0.5,
-  v => `
+vanillaSpring({
+  name: 'moveToast',
+  makeReverse: true,
+  keyframe: v => `
   transform: translateY(${35 * (1 - v)}px);
   opacity: ${v};
 `,
-);
+});
 
 interface IOptions {
   outTime?: number;
