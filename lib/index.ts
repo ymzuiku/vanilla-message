@@ -1,10 +1,10 @@
-import vanillaSpring from 'vanilla-spring';
-import { IStyle } from './IStyle';
+import vanillaSpring from "vanilla-spring";
+import { IStyle } from "./IStyle";
 
 vanillaSpring({
-  name: 'moveToast',
+  name: "moveToast",
   makeReverse: true,
-  keyframe: v => `
+  keyframe: (v) => `
   transform: translateY(${35 * (1 - v)}px);
   opacity: ${v};
 `,
@@ -19,13 +19,19 @@ interface IOptions {
 }
 
 const Message = (message: string, options?: IOptions) => {
-  const { isTop = true, outTime = 3000, onClick = () => {}, onHidden = () => {}, style = {} } = options || {};
-  const toast = document.createElement('div');
+  const {
+    isTop = true,
+    outTime = 3000,
+    onClick = () => {},
+    onHidden = () => {},
+    style = {},
+  } = options || {};
+  const toast = document.createElement("div");
 
   const hidden = () => {
     if (toast) {
-      toast.style.animation = 'moveToast-reverse 1s';
-      toast.style.animationFillMode = 'forwards';
+      toast.style.animation = "moveToast-reverse 1s";
+      toast.style.animationFillMode = "forwards";
       if (onHidden) {
         onHidden();
       }
@@ -35,27 +41,28 @@ const Message = (message: string, options?: IOptions) => {
     }
   };
 
-  toast.setAttribute('class', 'normal-body');
-  toast.style.width = '100%';
-  toast.style.zIndex = '9999';
-  toast.style.position = 'fixed';
-  toast.style.pointerEvents = 'none';
-  toast.style.left = '0px';
+  toast.className = "normal-body vanilla-message-toast";
+  toast.style.width = "100%";
+  toast.style.zIndex = "9999";
+  toast.style.position = "fixed";
+  toast.style.pointerEvents = "none";
+  toast.style.left = "0px";
   if (isTop) {
-    toast.style.top = '0px';
+    toast.style.top = "0px";
   } else {
-    toast.style.bottom = '20px';
+    toast.style.bottom = "20px";
   }
-  const button = document.createElement('button');
-  button.style.display = 'block';
-  button.style.border = 'none';
-  button.style.outline = 'none';
-  button.style.margin = '30px auto';
-  button.style.background = 'rgba(50,50,50,0.85)';
-  button.style.padding = '16px';
-  button.style.borderRadius = '6px';
-  button.style.color = '#fff';
-  button.style.animation = 'moveToast 1s';
+  const button = document.createElement("button");
+  button.className = "vanilla-message-toast";
+  button.style.display = "block";
+  button.style.border = "none";
+  button.style.outline = "none";
+  button.style.margin = "30px auto";
+  button.style.background = "rgba(50,50,50,0.85)";
+  button.style.padding = "16px";
+  button.style.borderRadius = "6px";
+  button.style.color = "#fff";
+  button.style.animation = "moveToast 1s";
 
   button.onclick = () => {
     if (onClick) {
@@ -65,7 +72,7 @@ const Message = (message: string, options?: IOptions) => {
   };
   button.textContent = message;
 
-  Object.keys(style).forEach(k => {
+  Object.keys(style).forEach((k) => {
     (button as any).style[k] = style[k];
   });
 

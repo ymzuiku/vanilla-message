@@ -1,4 +1,4 @@
-import { IStyle } from './IStyle';
+import { IStyle } from "./IStyle";
 interface IOptions {
     outTime?: number;
     isTop?: boolean;
