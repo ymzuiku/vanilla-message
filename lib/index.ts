@@ -41,7 +41,7 @@ const Message = (message: string, options?: IOptions) => {
     }
   };
 
-  toast.className = "normal-body vanilla-message-toast";
+  toast.className = "normal-body vanilla-message-box";
   toast.style.width = "100%";
   toast.style.zIndex = "9999";
   toast.style.position = "fixed";
@@ -53,7 +53,7 @@ const Message = (message: string, options?: IOptions) => {
     toast.style.bottom = "20px";
   }
   const button = document.createElement("button");
-  button.className = "vanilla-message-toast";
+  button.className = "vanilla-message";
   button.style.display = "block";
   button.style.border = "none";
   button.style.outline = "none";
