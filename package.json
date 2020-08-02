@@ -1,6 +1,6 @@
 {
   "name": "vanilla-message",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "main": "umd/index.js",
   "types": "umd/index.d.ts",
   "private": false,
@@ -21,7 +21,5 @@
     "url": "git+https://github.com/ymzuiku/vanilla-message.git"
   },
   "homepage": "git+https://github.com/ymzuiku/vanilla-message.git",
-  "dependencies": {
-    "vanilla-spring": "^0.1.2"
-  }
+  "dependencies": {}
 }

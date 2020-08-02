@@ -1,14 +1,37 @@
-import vanillaSpring from "vanilla-spring";
 import { IStyle } from "./IStyle";
 
-vanillaSpring({
-  name: "moveToast",
-  makeReverse: true,
-  keyframe: (v) => `
-  transform: translateY(${35 * (1 - v)}px);
-  opacity: ${v};
-`,
-});
+const sty = document.createElement("style");
+sty.textContent = `
+@keyframes move-toast {
+  0% {
+    transform: translateY(-35px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes move-toast-reverse {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-35px);
+    opacity: 0;
+  }
+}
+.move-toast-in {
+  animation: move-toast 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.move-toast-out {
+  animation: move-toast-reverse 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: forwards;
+}
+`;
+
+document.head.append(sty);
 
 interface IOptions {
   outTime?: number;
@@ -33,8 +56,7 @@ const Message = (message: string, options?: IOptions) => {
 
   const hidden = () => {
     if (toast) {
-      toast.style.animation = "moveToast-reverse 1s";
-      toast.style.animationFillMode = "forwards";
+      toast.className = "move-toast-out";
       if (onHidden) {
         onHidden();
       }
@@ -65,7 +87,7 @@ const Message = (message: string, options?: IOptions) => {
   button.style.padding = "16px";
   button.style.borderRadius = "6px";
   button.style.color = "#fff";
-  button.style.animation = "moveToast 1s";
+  toast.className = "move-toast-in";
 
   button.onclick = () => {
     if (onClick) {
