@@ -23,10 +23,10 @@ sty.textContent = `
   }
 }
 .move-toast-in {
-  animation: move-toast 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: move-toast 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .move-toast-out {
-  animation: move-toast-reverse 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: move-toast-reverse 0.65s cubic-bezier(0.23, 1, 0.32, 1);
   animation-fill-mode: forwards;
 }
 `;

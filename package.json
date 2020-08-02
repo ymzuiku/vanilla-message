@@ -1,6 +1,6 @@
 {
   "name": "vanilla-message",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "main": "umd/index.js",
   "types": "umd/index.d.ts",
   "private": false,

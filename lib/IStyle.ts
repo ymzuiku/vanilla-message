@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/indent */
 interface IGlobalValues {
   inherit: string;
   initial: string;
@@ -10,7 +11,7 @@ interface IPosition {
   static: string;
   inherit: string;
   sticky: string;
-  '-webkit-sticky': string;
+  "-webkit-sticky": string;
 }
 
 interface IDisplay {
@@ -22,79 +23,79 @@ interface IDisplay {
   /** 默认。此元素会被显示为内联元素，元素前后没有换行符。 */
   inline: string;
   /** 行内块元素。（CSS2.1 新增的值） */
-  'inline-block': string;
+  "inline-block": string;
   /** 此元素会作为列表显示。 */
-  'list-item': string;
+  "list-item": string;
   /** 此元素会根据上下文作为块级元素或内联元素显示。*/
-  'run-in': string;
+  "run-in": string;
   /** 此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。 */
   table: string;
   /**此元素会作为内联表格来显示（类似 <table>），表格前后没有换行符。 */
-  'inline-table': string;
+  "inline-table": string;
   /**此元素会作为一个或多个行的分组来显示（类似 <tbody>）。 */
-  'table-row-group': string;
+  "table-row-group": string;
   /** 此元素会作为一个或多个行的分组来显示（类似 <thead>）。 */
-  'table-header-group': string;
+  "table-header-group": string;
   /** 此元素会作为一个或多个行的分组来显示（类似 <tfoot>）。 */
-  'table-footer-group': string;
+  "table-footer-group": string;
   /**此元素会作为一个表格行显示（类似 <tr>）。 */
-  'table-row': string;
+  "table-row": string;
   /** 此元素会作为一个或多个列的分组来显示（类似 <colgroup>）。 */
-  'table-column-group': string;
+  "table-column-group": string;
   /** 此元素会作为一个单元格列显示（类似 <col>） */
-  'table-column': string;
+  "table-column": string;
   /** 此元素会作为一个表格单元格显示（类似 <td> 和 <th>） */
-  'table-cell': string;
+  "table-cell": string;
   /** 此元素会作为一个表格标题显示（类似 <caption>） */
-  'table-caption': string;
+  "table-caption": string;
   /**	规定应该从父元素继承 display 属性的值。 */
   inherit: string;
 }
 
 export interface IStyle {
   alignContent?:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'stretch'
-    | 'space-between'
-    | 'space-around'
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "space-between"
+    | "space-around"
     | keyof IGlobalValues;
-  alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | keyof IGlobalValues;
-  alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | keyof IGlobalValues;
+  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | keyof IGlobalValues;
+  alignSelf?: "auto" | "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | keyof IGlobalValues;
   alignmentBaseline?: string | null;
   animation?: string;
   animation__snippet?:
-    | 'name 1s linear 0s infinite normal both running'
-    | 'name 3s linear 1s infinite running'
-    | 'name 3s linear 1s infinite alternate'
-    | 'name .5s linear 1s infinite alternate';
+    | "name 1s linear 0s infinite normal both running"
+    | "name 3s linear 1s infinite running"
+    | "name 3s linear 1s infinite alternate"
+    | "name .5s linear 1s infinite alternate";
   animationDelay?: string;
-  animationDirection?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse';
+  animationDirection?: "normal" | "reverse" | "alternate" | "alternate-reverse";
   animationDuration?: string;
-  animationFillMode?: 'none' | 'forwards' | 'backwards' | 'both';
+  animationFillMode?: "none" | "forwards" | "backwards" | "both";
   animationIterationCount?: string;
   animationName?: string;
   animationPlayState?: string;
   animationTimingFunction?: string;
   backfaceVisibility?: string | null;
   background?: string | null;
-  background__snippet?: 'rgba(0,0,0,0)' | '#fff' | 'linear-gradient(180deg, red, blue)';
-  backgroundAttachment?: 'scroll' | 'fixed' | 'local';
-  backgroundClip?: 'padding-box' | 'border-box' | 'content-box' | keyof IGlobalValues;
+  background__snippet?: "rgba(0,0,0,0)" | "#fff" | "linear-gradient(180deg, red, blue)";
+  backgroundAttachment?: "scroll" | "fixed" | "local";
+  backgroundClip?: "padding-box" | "border-box" | "content-box" | keyof IGlobalValues;
   backgroundColor?: string | null;
   backgroundImage?: string | null;
-  backgroundImage__snippet?: 'url(bgimage.gif)';
-  backgroundOrigin?: 'padding-box' | 'border-box' | 'content-box' | keyof IGlobalValues;
+  backgroundImage__snippet?: "url(bgimage.gif)";
+  backgroundOrigin?: "padding-box" | "border-box" | "content-box" | keyof IGlobalValues;
   backgroundPosition?: string | null;
-  backgroundPosition__snippet?: 'inherit' | '0% 50%';
+  backgroundPosition__snippet?: "inherit" | "0% 50%";
   backgroundPositionX?: string | null;
   backgroundPositionY?: string | null;
   backgroundRepeat?: string | null;
   backgroundSize?: string | null;
   baselineShift?: string | null;
   border?: string | null;
-  border__snippet?: '1px solid #000' | '1px solid rgba(0,0,0,0.1)';
+  border__snippet?: "1px solid #000" | "1px solid rgba(0,0,0,0.1)";
   borderBottom?: string | null;
   borderBottomColor?: string | null;
   borderBottomLeftRadius?: string | null;
@@ -120,17 +121,17 @@ export interface IStyle {
   borderRightWidth?: string | null;
   borderSpacing?: string | null;
   borderStyle?:
-    | 'none'
-    | 'hidden'
-    | 'dotted'
-    | 'dashed'
-    | 'solid'
-    | 'double'
-    | 'groove'
-    | 'ridge'
-    | 'inset'
-    | 'outset'
-    | 'inherit';
+    | "none"
+    | "hidden"
+    | "dotted"
+    | "dashed"
+    | "solid"
+    | "double"
+    | "groove"
+    | "ridge"
+    | "inset"
+    | "outset"
+    | "inherit";
   borderTop?: string | null;
   borderTopColor?: string | null;
   borderTopLeftRadius?: string | null;
@@ -140,13 +141,13 @@ export interface IStyle {
   borderWidth?: string | null;
   bottom?: string | null;
   boxShadow?: string | null;
-  boxSizing?: 'content-box' | 'border-box' | keyof IGlobalValues;
+  boxSizing?: "content-box" | "border-box" | keyof IGlobalValues;
   breakAfter?: string | null;
   breakBefore?: string | null;
   breakInside?: string | null;
   captionSide?: string | null;
   caretColor?: string;
-  clear?: 'none' | 'left' | 'right' | 'both' | 'inherit';
+  clear?: "none" | "left" | "right" | "both" | "inherit";
   clip?: string;
   clipPath?: string;
   clipRule?: string;
@@ -165,26 +166,26 @@ export interface IStyle {
   content?: string | null;
   counterIncrement?: string | null;
   counterReset?: string | null;
-  cssFloat?: 'left' | 'right' | 'none' | 'inherit';
-  float?: 'left' | 'right' | 'none' | 'inherit';
+  cssFloat?: "left" | "right" | "none" | "inherit";
+  float?: "left" | "right" | "none" | "inherit";
   cssText?: string;
   cursor?:
-    | 'auto'
-    | 'default'
-    | 'pointer'
-    | 'crosshair'
-    | 'move'
-    | 'e-resize'
-    | 'ne-resize'
-    | 'nw-resize'
-    | 'n-resize'
-    | 'se-resize'
-    | 'sw-resize'
-    | 's-resize'
-    | 'w-resize'
-    | 'text'
-    | 'wait'
-    | 'help';
+    | "auto"
+    | "default"
+    | "pointer"
+    | "crosshair"
+    | "move"
+    | "e-resize"
+    | "ne-resize"
+    | "nw-resize"
+    | "n-resize"
+    | "se-resize"
+    | "sw-resize"
+    | "s-resize"
+    | "w-resize"
+    | "text"
+    | "wait"
+    | "help";
   direction?: string;
   display?: keyof IDisplay;
   dominantBaseline?: string | null;
@@ -196,7 +197,7 @@ export interface IStyle {
   filter?: string;
   flex?: string | null;
   flexBasis?: string | null;
-  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
+  flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
   flexFlow?: string | null;
   flexGrow?: string | null;
   flexShrink?: string | null;
@@ -223,18 +224,18 @@ export interface IStyle {
   fontVariantNumeric?: string;
   fontVariantPosition?: string;
   fontWeight?:
-    | 'normal'
-    | 'bold'
-    | 'bolder'
-    | 'lighter'
-    | '100'
-    | '200'
-    | '300'
-    | '400'
-    | '500'
-    | '600'
-    | '800'
-    | '900'
+    | "normal"
+    | "bold"
+    | "bolder"
+    | "lighter"
+    | "100"
+    | "200"
+    | "300"
+    | "400"
+    | "500"
+    | "600"
+    | "800"
+    | "900"
     | keyof IGlobalValues;
   gap?: string;
   glyphOrientationHorizontal?: string | null;
@@ -262,9 +263,9 @@ export interface IStyle {
   imageOrientation?: string;
   imageRendering?: string;
   imeMode?: string | null;
-  justifyContent?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | keyof IGlobalValues;
-  justifyItems?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | keyof IGlobalValues;
-  justifySelf?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | keyof IGlobalValues;
+  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | keyof IGlobalValues;
+  justifyItems?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | keyof IGlobalValues;
+  justifySelf?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | keyof IGlobalValues;
   kerning?: string | null;
   layoutGrid?: string | null;
   layoutGridChar?: string | null;
@@ -347,9 +348,9 @@ export interface IStyle {
   msWrapFlow?: string;
   msWrapMargin?: any;
   msWrapThrough?: string;
-  objectFit?: 'none' | 'fill' | 'contain' | 'cover' | 'scale-down';
+  objectFit?: "none" | "fill" | "contain" | "cover" | "scale-down";
   objectPosition?: string;
-  objectPosition__snippet?: '50% 50%';
+  objectPosition__snippet?: "50% 50%";
   opacity?: string | number | null;
   order?: string | null;
   orphans?: string | null;
@@ -358,11 +359,11 @@ export interface IStyle {
   outlineOffset?: string;
   outlineStyle?: string;
   outlineWidth?: string;
-  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto' | 'inherit';
+  overflow?: "visible" | "hidden" | "scroll" | "auto" | "inherit";
   overflowAnchor?: string;
   overflowWrap?: string;
-  overflowX?: 'visible' | 'hidden' | 'scroll' | 'auto' | 'inherit';
-  overflowY?: 'visible' | 'hidden' | 'scroll' | 'auto' | 'inherit';
+  overflowX?: "visible" | "hidden" | "scroll" | "auto" | "inherit";
+  overflowY?: "visible" | "hidden" | "scroll" | "auto" | "inherit";
   padding?: string | null;
   paddingBottom?: string | null;
   paddingLeft?: string | null;
@@ -378,22 +379,22 @@ export interface IStyle {
   placeItems?: string;
   placeSelf?: string;
   pointerEvents?:
-    | 'auto'
-    | 'none'
-    | 'inherit'
-    | 'initial'
-    | 'unset'
-    | 'visiblePainted'
-    | 'visibleFill'
-    | 'visibleStroke'
-    | 'visible'
-    | 'painted'
-    | 'fill'
-    | 'stroke'
-    | 'all';
+    | "auto"
+    | "none"
+    | "inherit"
+    | "initial"
+    | "unset"
+    | "visiblePainted"
+    | "visibleFill"
+    | "visibleStroke"
+    | "visible"
+    | "painted"
+    | "fill"
+    | "stroke"
+    | "all";
   position?: keyof IPosition;
   quotes?: string | null;
-  resize?: 'none' | 'both' | 'horizontal' | 'vertical' | 'block' | 'inline' | keyof IGlobalValues;
+  resize?: "none" | "both" | "horizontal" | "vertical" | "block" | "inline" | keyof IGlobalValues;
   right?: string | null;
   rotate?: string | null;
   rowGap?: string;
@@ -413,7 +414,7 @@ export interface IStyle {
   strokeOpacity?: string | null;
   strokeWidth?: string | null;
   tabSize?: string;
-  tableLayout?: 'auto' | 'fixed' | keyof IGlobalValues;
+  tableLayout?: "auto" | "fixed" | keyof IGlobalValues;
   textAlign?: string;
   textAlignLast?: string;
   textAnchor?: string | null;
@@ -439,36 +440,36 @@ export interface IStyle {
   touchAction?: string;
   transform?: string;
   transform__snippet?:
-    | 'none'
-    | 'translate(0px, 0px)'
-    | 'translateY(0px)'
-    | 'perspective(500px) translate3d(0px,0px,0px)'
-    | 'scale(1,1)'
-    | 'rotate(0deg)';
+    | "none"
+    | "translate(0px, 0px)"
+    | "translateY(0px)"
+    | "perspective(500px) translate3d(0px,0px,0px)"
+    | "scale(1,1)"
+    | "rotate(0deg)";
   transformBox?: string;
   transformOrigin?: string;
   transformStyle?: string | null;
   transition?: string;
   transition__snippet?:
-    | 'all 0.2s ease-in'
-    | 'all 0.2s ease-out'
-    | 'all 0.2s ease'
-    | 'all 0.2s ease-in-out'
-    | 'all 0.2s linear'
-    | 'all 0.2s cubic-bezier(0,0.25,0.75,1)';
+    | "all 0.2s ease-in"
+    | "all 0.2s ease-out"
+    | "all 0.2s ease"
+    | "all 0.2s ease-in-out"
+    | "all 0.2s linear"
+    | "all 0.2s cubic-bezier(0,0.25,0.75,1)";
   transitionDelay?: string;
   transitionDuration?: string;
   transitionProperty?: string;
   transitionTimingFunction?: string;
   translate?: string | null;
   unicodeBidi?: string;
-  userSelect?: 'none' | 'auto' | 'text' | 'contain' | 'all' | keyof IGlobalValues;
+  userSelect?: "none" | "auto" | "text" | "contain" | "all" | keyof IGlobalValues;
   verticalAlign?: string | null;
   visibility?: string | null;
   /** @deprecated */
   webkitAlignContent?: string;
   /** @deprecated */
-  webkitAlignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline' | IGlobalValues;
+  webkitAlignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | IGlobalValues;
   /** @deprecated */
   webkitAlignSelf?: string;
   /** @deprecated */
@@ -622,11 +623,11 @@ export interface IStyle {
   whiteSpace?: string;
   widows?: string | null;
   width?: string | null;
-  willChange?: 'auto' | 'scroll-position' | 'contents' | 'transform' | 'opacity' | 'left, top' | keyof IGlobalValues;
-  wordBreak?: 'normal' | 'break-oall' | 'keep-all' | 'break-word';
+  willChange?: "auto" | "scroll-position" | "contents" | "transform" | "opacity" | "left, top" | keyof IGlobalValues;
+  wordBreak?: "normal" | "break-oall" | "keep-all" | "break-word";
   /** 3px|0.3em|inherit|normal(default) */
   wordSpacing?: string;
-  wordSpacing__snippet?: 'normal' | '3px' | '0.3em' | 'inherit';
+  wordSpacing__snippet?: "normal" | "3px" | "0.3em" | "inherit";
   wordWrap?: string;
   writingMode?: string;
   zIndex?: string | number | null;
