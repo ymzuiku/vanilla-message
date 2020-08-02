@@ -26,6 +26,9 @@ const Message = (message: string, options?: IOptions) => {
     onHidden = () => {},
     style = {},
   } = options || {};
+  if (typeof message === "undefined" || message === "") {
+    return;
+  }
   const toast = document.createElement("div");
 
   const hidden = () => {
