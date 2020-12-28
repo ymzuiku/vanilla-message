@@ -104,8 +104,8 @@ interface IOptions {
 
 const Message = async (message: string, options: IOptions = {}) => {
   return new Promise((res) => {
-    const {
-      position = "top",
+    let {
+      position,
       className = "",
       outTime,
       onClick = () => {},
@@ -116,6 +116,13 @@ const Message = async (message: string, options: IOptions = {}) => {
     } = options;
     if (typeof message === "undefined" || message === "") {
       return;
+    }
+    if (!position) {
+      if (ok || cancel) {
+        position = "center";
+      } else {
+        position = "top";
+      }
     }
     const toast = document.createElement("div");
 
