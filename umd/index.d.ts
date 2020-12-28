@@ -4,17 +4,17 @@ interface IOptions {
     cancel?: string;
     className?: string;
     outTime?: number;
-    isTop?: boolean;
+    position?: "top" | "center" | "bottom";
     onClick?: Function;
     onHidden?: Function;
     style?: IStyle;
 }
 declare const Message: {
     (message: string, options?: IOptions): Promise<unknown>;
-    white(text: string, ok?: string | undefined, cancel?: string | undefined): Promise<unknown>;
-    black(text: string, ok?: string | undefined, cancel?: string | undefined): Promise<unknown>;
-    info(text: string, ok?: string | undefined, cancel?: string | undefined): Promise<unknown>;
-    success(text: string, ok?: string | undefined, cancel?: string | undefined): Promise<unknown>;
-    error(text: string, ok?: string | undefined, cancel?: string | undefined): Promise<unknown>;
+    white(text: string, opt?: IOptions): Promise<unknown>;
+    black(text: string, opt?: IOptions): Promise<unknown>;
+    info(text: string, opt?: IOptions): Promise<unknown>;
+    success(text: string, opt?: IOptions): Promise<unknown>;
+    error(text: string, opt?: IOptions): Promise<unknown>;
 };
 export default Message;

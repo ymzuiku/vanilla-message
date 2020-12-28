@@ -32,11 +32,40 @@ sty.textContent = `
     opacity: 0;
   }
 }
+@keyframes move-toast-down {
+  0% {
+    transform: translateY(${moveY * 1.5}px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes move-toast-down-reverse {
+  0% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(${moveY * 1.5}px);
+    opacity: 0;
+  }
+}
+
 .move-toast-in {
-  animation: move-toast 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: move-toast 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .move-toast-out {
-  animation: move-toast-reverse 0.65s cubic-bezier(0.23, 1, 0.32, 1);
+  animation: move-toast-reverse 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: forwards;
+}
+
+.move-toast-in-down {
+  animation: move-toast-down 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.move-toast-out-down {
+  animation: move-toast-down-reverse 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   animation-fill-mode: forwards;
 }
 `;
@@ -67,7 +96,7 @@ interface IOptions {
   cancel?: string;
   className?: string;
   outTime?: number;
-  isTop?: boolean;
+  position?: "top" | "center" | "bottom";
   onClick?: Function;
   onHidden?: Function;
   style?: IStyle;
@@ -76,7 +105,7 @@ interface IOptions {
 const Message = async (message: string, options: IOptions = {}) => {
   return new Promise((res) => {
     const {
-      isTop = true,
+      position = "top",
       className = "",
       outTime,
       onClick = () => {},
@@ -92,7 +121,12 @@ const Message = async (message: string, options: IOptions = {}) => {
 
     const hidden = (success: boolean) => {
       if (toast) {
-        toast.className = "move-toast-out " + className;
+        if (position === "top") {
+          toast.className = "move-toast-out " + className;
+        } else {
+          toast.className = "move-toast-out-down " + className;
+        }
+
         if (onHidden) {
           onHidden();
         }
@@ -107,19 +141,22 @@ const Message = async (message: string, options: IOptions = {}) => {
     toast.style.width = "100%";
     toast.style.zIndex = "9999";
     toast.style.position = "fixed";
-    // toast.style.pointerEvents = "none";
     toast.style.display = "flex";
     toast.style.flexDirection = "column";
     toast.style.justifyContent = "center";
     toast.style.alignItems = "flex-start";
     toast.style.left = "0px";
     toast.style.fontSize = "16px";
-    if (isTop) {
+    if (position === "top") {
       toast.style.top = "0px";
-    } else {
+      toast.className = "move-toast-in";
+    } else if (position === "bottom") {
       toast.style.bottom = "20px";
+      toast.className = "move-toast-in-down";
+    } else {
+      toast.style.bottom = "50%";
+      toast.className = "move-toast-in-down";
     }
-    toast.className = "move-toast-in";
 
     const button = document.createElement("div");
     button.className = "vanilla-message";
@@ -140,7 +177,7 @@ const Message = async (message: string, options: IOptions = {}) => {
     });
 
     if (!ok && !cancel) {
-      button.onclick = () => {
+      button.onclick = (e) => {
         if (onClick) {
           onClick();
         }
@@ -194,43 +231,38 @@ const Message = async (message: string, options: IOptions = {}) => {
   });
 };
 
-Message.white = (text: string, ok?: string, cancel?: string) => {
+Message.white = (text: string, opt: IOptions = {}) => {
   return Message(text, {
-    ok,
-    cancel,
     style: { color: "var(--black, #000)", background: "var(--white, #fff)" },
+    ...opt,
   });
 };
 
-Message.black = (text: string, ok?: string, cancel?: string) => {
+Message.black = (text: string, opt: IOptions = {}) => {
   return Message(text, {
-    ok,
-    cancel,
     style: { background: "var(--black, #000)" },
+    ...opt,
   });
 };
 
-Message.info = (text: string, ok?: string, cancel?: string) => {
+Message.info = (text: string, opt: IOptions = {}) => {
   return Message(text, {
-    ok,
-    cancel,
     style: { background: "var(--primary5, #488)" },
+    ...opt,
   });
 };
 
-Message.success = (text: string, ok?: string, cancel?: string) => {
+Message.success = (text: string, opt: IOptions = {}) => {
   return Message(text, {
-    ok,
-    cancel,
     style: { background: "var(--primary9, #67f)" },
+    ...opt,
   });
 };
 
-Message.error = (text: string, ok?: string, cancel?: string) => {
+Message.error = (text: string, opt: IOptions = {}) => {
   return Message(text, {
-    ok,
-    cancel,
     style: { background: "var(--red5, #f33)" },
+    ...opt,
   });
 };
 
