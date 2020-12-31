@@ -146,8 +146,9 @@ const Message = async (message: string, options: IOptions = {}) => {
 
     toast.className = "normal-body vanilla-message-box " + className;
     toast.style.width = "100%";
-    toast.style.zIndex = "9999";
+    toast.style.zIndex = (style.zIndex as any) || "9999";
     toast.style.position = "fixed";
+    toast.style.pointerEvents = "none";
     toast.style.display = "flex";
     toast.style.flexDirection = "column";
     toast.style.justifyContent = "center";
@@ -169,6 +170,7 @@ const Message = async (message: string, options: IOptions = {}) => {
     button.className = "vanilla-message";
     button.style.border = "none";
     button.style.outline = "none";
+    button.style.pointerEvents = "auto";
     button.style.margin = `${moveY}px auto`;
     button.style.textAlign = `center`;
     button.style.alignSelf = "center";
@@ -239,37 +241,46 @@ const Message = async (message: string, options: IOptions = {}) => {
 };
 
 Message.white = (text: string, opt: IOptions = {}) => {
+  const { style, ...rest } = opt;
   return Message(text, {
-    style: { color: "var(--black, #000)", background: "var(--white, #fff)" },
-    ...opt,
+    style: {
+      color: "var(--black, #000)",
+      background: "var(--white, #fff)",
+      ...style,
+    },
+    ...rest,
   });
 };
 
 Message.black = (text: string, opt: IOptions = {}) => {
+  const { style, ...rest } = opt;
   return Message(text, {
-    style: { background: "var(--black, #000)" },
-    ...opt,
+    style: { background: "var(--black, #000)", ...style },
+    ...rest,
   });
 };
 
 Message.info = (text: string, opt: IOptions = {}) => {
+  const { style, ...rest } = opt;
   return Message(text, {
-    style: { background: "var(--primary5, #488)" },
-    ...opt,
+    style: { background: "var(--primary5, #488)", ...style },
+    ...rest,
   });
 };
 
 Message.success = (text: string, opt: IOptions = {}) => {
+  const { style, ...rest } = opt;
   return Message(text, {
-    style: { background: "var(--primary9, #67f)" },
-    ...opt,
+    style: { background: "var(--primary9, #67f)", ...style },
+    ...rest,
   });
 };
 
 Message.error = (text: string, opt: IOptions = {}) => {
+  const { style, ...rest } = opt;
   return Message(text, {
-    style: { background: "var(--red5, #f33)" },
-    ...opt,
+    style: { background: "var(--red5, #f33)", ...style },
+    ...rest,
   });
 };
 

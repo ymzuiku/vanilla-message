@@ -61,8 +61,21 @@ export interface IStyle {
     | "space-between"
     | "space-around"
     | keyof IGlobalValues;
-  alignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | keyof IGlobalValues;
-  alignSelf?: "auto" | "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | keyof IGlobalValues;
+  alignItems?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline"
+    | keyof IGlobalValues;
+  alignSelf?:
+    | "auto"
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline"
+    | keyof IGlobalValues;
   alignmentBaseline?: string | null;
   animation?: string;
   animation__snippet?:
@@ -80,13 +93,24 @@ export interface IStyle {
   animationTimingFunction?: string;
   backfaceVisibility?: string | null;
   background?: string | null;
-  background__snippet?: "rgba(0,0,0,0)" | "#fff" | "linear-gradient(180deg, red, blue)";
+  background__snippet?:
+    | "rgba(0,0,0,0)"
+    | "#fff"
+    | "linear-gradient(180deg, red, blue)";
   backgroundAttachment?: "scroll" | "fixed" | "local";
-  backgroundClip?: "padding-box" | "border-box" | "content-box" | keyof IGlobalValues;
+  backgroundClip?:
+    | "padding-box"
+    | "border-box"
+    | "content-box"
+    | keyof IGlobalValues;
   backgroundColor?: string | null;
   backgroundImage?: string | null;
   backgroundImage__snippet?: "url(bgimage.gif)";
-  backgroundOrigin?: "padding-box" | "border-box" | "content-box" | keyof IGlobalValues;
+  backgroundOrigin?:
+    | "padding-box"
+    | "border-box"
+    | "content-box"
+    | keyof IGlobalValues;
   backgroundPosition?: string | null;
   backgroundPosition__snippet?: "inherit" | "0% 50%";
   backgroundPositionX?: string | null;
@@ -263,9 +287,27 @@ export interface IStyle {
   imageOrientation?: string;
   imageRendering?: string;
   imeMode?: string | null;
-  justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | keyof IGlobalValues;
-  justifyItems?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | keyof IGlobalValues;
-  justifySelf?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | keyof IGlobalValues;
+  justifyContent?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | keyof IGlobalValues;
+  justifyItems?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | keyof IGlobalValues;
+  justifySelf?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | keyof IGlobalValues;
   kerning?: string | null;
   layoutGrid?: string | null;
   layoutGridChar?: string | null;
@@ -394,7 +436,14 @@ export interface IStyle {
     | "all";
   position?: keyof IPosition;
   quotes?: string | null;
-  resize?: "none" | "both" | "horizontal" | "vertical" | "block" | "inline" | keyof IGlobalValues;
+  resize?:
+    | "none"
+    | "both"
+    | "horizontal"
+    | "vertical"
+    | "block"
+    | "inline"
+    | keyof IGlobalValues;
   right?: string | null;
   rotate?: string | null;
   rowGap?: string;
@@ -463,13 +512,25 @@ export interface IStyle {
   transitionTimingFunction?: string;
   translate?: string | null;
   unicodeBidi?: string;
-  userSelect?: "none" | "auto" | "text" | "contain" | "all" | keyof IGlobalValues;
+  userSelect?:
+    | "none"
+    | "auto"
+    | "text"
+    | "contain"
+    | "all"
+    | keyof IGlobalValues;
   verticalAlign?: string | null;
   visibility?: string | null;
   /** @deprecated */
   webkitAlignContent?: string;
   /** @deprecated */
-  webkitAlignItems?: "flex-start" | "flex-end" | "center" | "stretch" | "baseline" | IGlobalValues;
+  webkitAlignItems?:
+    | "flex-start"
+    | "flex-end"
+    | "center"
+    | "stretch"
+    | "baseline"
+    | IGlobalValues;
   /** @deprecated */
   webkitAlignSelf?: string;
   /** @deprecated */
@@ -623,7 +684,14 @@ export interface IStyle {
   whiteSpace?: string;
   widows?: string | null;
   width?: string | null;
-  willChange?: "auto" | "scroll-position" | "contents" | "transform" | "opacity" | "left, top" | keyof IGlobalValues;
+  willChange?:
+    | "auto"
+    | "scroll-position"
+    | "contents"
+    | "transform"
+    | "opacity"
+    | "left, top"
+    | keyof IGlobalValues;
   wordBreak?: "normal" | "break-oall" | "keep-all" | "break-word";
   /** 3px|0.3em|inherit|normal(default) */
   wordSpacing?: string;
