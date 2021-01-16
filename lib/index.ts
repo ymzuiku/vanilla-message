@@ -102,7 +102,10 @@ interface IOptions {
   style?: IStyle;
 }
 
-const Message = async (message: string, options: IOptions = {}) => {
+const Message = async (
+  message: string,
+  options: IOptions = {}
+): Promise<boolean> => {
   return new Promise((res) => {
     let {
       position,

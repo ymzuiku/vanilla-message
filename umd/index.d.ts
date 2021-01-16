@@ -10,11 +10,11 @@ interface IOptions {
     style?: IStyle;
 }
 declare const Message: {
-    (message: string, options?: IOptions): Promise<unknown>;
-    white(text: string, opt?: IOptions): Promise<unknown>;
-    black(text: string, opt?: IOptions): Promise<unknown>;
-    info(text: string, opt?: IOptions): Promise<unknown>;
-    success(text: string, opt?: IOptions): Promise<unknown>;
-    error(text: string, opt?: IOptions): Promise<unknown>;
+    (message: string, options?: IOptions): Promise<boolean>;
+    white(text: string, opt?: IOptions): Promise<boolean>;
+    black(text: string, opt?: IOptions): Promise<boolean>;
+    info(text: string, opt?: IOptions): Promise<boolean>;
+    success(text: string, opt?: IOptions): Promise<boolean>;
+    error(text: string, opt?: IOptions): Promise<boolean>;
 };
 export default Message;
