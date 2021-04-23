@@ -199,7 +199,11 @@ const Message = async (
     const text = document.createElement("div");
     text.style.padding = "12px";
     text.style.fontSize = "14px";
-    text.textContent = message;
+    if (typeof message === "string") {
+      text.textContent = message;
+    } else {
+      text.appendChild(message);
+    }
     text.style.color = style && style.color ? style.color : "#fff";
     button.appendChild(text);
     let isConfirm = false;
