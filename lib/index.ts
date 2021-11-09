@@ -1,7 +1,12 @@
 import { IStyle } from "./IStyle";
-const sty = document.createElement("style");
+
 const moveY = 20;
-sty.textContent = `
+let sty: HTMLElement;
+
+if (typeof window !== "undefined") {
+  sty = document.createElement("style");
+
+  sty.textContent = `
 .vanilla-message-btn {
   cursor:pointer;
   background: rgba(0,0,0,0);
@@ -70,8 +75,8 @@ sty.textContent = `
 }
 `;
 
-document.head.append(sty);
-
+  document.head.append(sty);
+}
 function createLabel(text: string, style: any) {
   const label = document.createElement("div");
   label.className = "vanilla-message-btn";
@@ -106,6 +111,9 @@ const Message = async (
   message: string,
   options: IOptions = {}
 ): Promise<boolean> => {
+  if (typeof window === "undefined") {
+    return new Promise((res) => res(true));
+  }
   return new Promise((res) => {
     let {
       position,
